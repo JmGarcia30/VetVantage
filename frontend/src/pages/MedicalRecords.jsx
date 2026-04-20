@@ -1,0 +1,1 @@
+// Clinical notes view

@@ -1,0 +1,15 @@
+# Dependencies (covers both folders)
+**/node_modules/
+**/dist/
+**/build/
+
+# Environment Variables
+**/.env
+**/.env.local
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Backend Specifics
+backend/invoices/*.pdf
