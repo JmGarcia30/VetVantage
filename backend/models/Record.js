@@ -8,11 +8,6 @@ const recordSchema = new mongoose.Schema(
       ref: 'Pet',
       required: true,
     },
-    vet: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User', // The staff member who wrote the record
-      required: true,
-    },
     diagnosis: {
       type: String,
       required: true,
@@ -21,13 +16,6 @@ const recordSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    prescriptions: [
-      {
-        medication: String,
-        dosage: String,
-        instructions: String,
-      }
-    ],
     notes: {
       type: String,
     }
@@ -37,5 +25,4 @@ const recordSchema = new mongoose.Schema(
   }
 );
 
-const Record = mongoose.model('Record', recordSchema);
-export default Record;
+export default mongoose.model('Record', recordSchema);

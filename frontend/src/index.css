@@ -1,8 +1,2 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Add this to force a background color and verify it's working */
-body {
-  @apply bg-gray-900 text-white;
-}
+@import "tailwindcss";
+@config "../tailwind.config.js";

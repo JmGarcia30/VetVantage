@@ -1,4 +1,5 @@
 // Stock deducts, low stock warnings
+// Add a new item to the inventory
 import Item from '../models/Item.js';
 
 export const getInventory = async (req, res) => {
@@ -27,5 +28,24 @@ export const deductStock = async (req, res) => {
     res.json(item);
   } catch (error) {
     res.status(500).json({ message: 'Error updating stock', error: error.message });
+  }
+};
+
+export const addItem = async (req, res) => {
+  try {
+    const { name, quantity, price } = req.body;
+    
+    const newItem = await Item.create({
+      name,
+      quantity,
+      price,
+      category: 'Supply', // Added this to satisfy the database!
+      lowStockThreshold: 5 
+    });
+
+    res.status(201).json(newItem);
+  } catch (error) {
+    console.error("Database Save Error:", error.message); 
+    res.status(500).json({ message: 'Failed to add item', error: error.message });
   }
 };
